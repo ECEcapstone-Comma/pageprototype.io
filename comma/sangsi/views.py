@@ -2,9 +2,9 @@ from django.shortcuts import render, HttpResponseRedirect
 from .forms import YearForm
 
 
-def main1(request):
+def index(request):
     form = YearForm(initial={'year': 2000})
-    template_name = 'main1.html'
+    template_name = 'index.html'
 
     if request.method == 'POST':
         form = YearForm(request.POST)
@@ -13,7 +13,7 @@ def main1(request):
             # year 변수에 입력받은 연도 값이 저장됨
             # 추가적인 로직 수행
             print('year=', year)
-            return HttpResponseRedirect('/main1')
+            return HttpResponseRedirect('/index')
 
     context = {'form': form}
     return render(request, template_name, context)
